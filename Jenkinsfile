@@ -26,7 +26,9 @@ stage('Restore packages'){
   }
   stage('Publish') {
    steps {
+		bat "net stop was /y"
 		bat "dotnet publish D:\\Projetos\\JenkinsNet5\\JenkinsNet5\\JenkinsNet5.csproj -o D:\\IIS\\JenkinsNet5"
+		bat "net start w3svc"
    }
   }
  }
